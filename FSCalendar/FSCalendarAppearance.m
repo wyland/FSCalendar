@@ -67,7 +67,7 @@
 {
     self = [super init];
     if (self) {
-        
+
         _adjustsFontSizeToFitContentSize = YES;
         
         _titleFontSize = _preferredTitleFontSize  = FSCalendarStandardTitleTextSize;
@@ -142,7 +142,7 @@
 
 - (UIFont *)titleFont
 {
-    return [UIFont fontWithName:_titleFontName size:_titleFontSize];
+    return [UIFont systemFontOfSize:FSCalendarStandardTitleTextSize];
 }
 
 - (void)setSubtitleFont:(UIFont *)subtitleFont
@@ -163,7 +163,7 @@
 
 - (UIFont *)subtitleFont
 {
-    return [UIFont fontWithName:_subtitleFontName size:_subtitleFontSize];
+    return [UIFont systemFontOfSize:FSCalendarStandardSubtitleTextSize];
 }
 
 - (void)setWeekdayFont:(UIFont *)weekdayFont
@@ -184,7 +184,7 @@
 
 - (UIFont *)weekdayFont
 {
-    return [UIFont fontWithName:_weekdayFontName size:_weekdayFontSize];
+    return [UIFont systemFontOfSize:FSCalendarStandardWeekdayTextSize];
 }
 
 - (void)setHeaderTitleFont:(UIFont *)headerTitleFont
@@ -241,7 +241,7 @@
 
 - (UIFont *)headerTitleFont
 {
-    return [UIFont fontWithName:_headerTitleFontName size:_headerTitleFontSize];
+    return [UIFont systemFontOfSize:FSCalendarStandardHeaderTextSize];
 }
 
 - (void)setTitleDefaultColor:(UIColor *)color
@@ -532,22 +532,22 @@
 
 - (UIFont *)preferredTitleFont
 {
-    return [UIFont fontWithName:_titleFontName size:_adjustsFontSizeToFitContentSize?_preferredTitleFontSize:_titleFontSize];
+    return self.titleFont;
 }
 
 - (UIFont *)preferredSubtitleFont
 {
-    return [UIFont fontWithName:_subtitleFontName size:_adjustsFontSizeToFitContentSize?_preferredSubtitleFontSize:_subtitleFontSize];
+    return self.subtitleFont;
 }
 
 - (UIFont *)preferredWeekdayFont
 {
-    return [UIFont fontWithName:_weekdayFontName size:_adjustsFontSizeToFitContentSize?_preferredWeekdayFontSize:_weekdayFontSize];
+    return self.weekdayFont;
 }
 
 - (UIFont *)preferredHeaderTitleFont
 {
-    return [UIFont fontWithName:_headerTitleFontName size:_adjustsFontSizeToFitContentSize?_preferredHeaderTitleFontSize:_headerTitleFontSize];
+    return self.headerTitleFont;
 }
 
 - (void)adjustTitleIfNecessary
@@ -717,7 +717,7 @@
 
 - (void)setTitleTextSize:(CGFloat)titleTextSize
 {
-    self.titleFont = [UIFont fontWithName:_titleFontName size:titleTextSize];
+    self.titleFont = [self.titleFont fontWithSize:titleTextSize];
 }
 
 - (CGFloat)titleTextSize
@@ -727,7 +727,7 @@
 
 - (void)setSubtitleTextSize:(CGFloat)subtitleTextSize
 {
-    self.subtitleFont = [UIFont fontWithName:_subtitleFontName size:subtitleTextSize];
+    self.subtitleFont = [self.subtitleFont fontWithSize:subtitleTextSize];
 }
 
 - (CGFloat)subtitleTextSize
@@ -737,7 +737,7 @@
 
 - (void)setWeekdayTextSize:(CGFloat)weekdayTextSize
 {
-    self.weekdayFont = [UIFont fontWithName:_weekdayFontName size:weekdayTextSize];
+    self.weekdayFont = [self.weekdayFont fontWithSize:weekdayTextSize];
 }
 
 - (CGFloat)weekdayTextSize
@@ -747,7 +747,7 @@
 
 - (void)setHeaderTitleTextSize:(CGFloat)headerTitleTextSize
 {
-    self.headerTitleFont = [UIFont fontWithName:_headerTitleFontName size:headerTitleTextSize];
+    self.headerTitleFont = [self.headerTitleFont fontWithSize:headerTitleTextSize];
 }
 
 - (CGFloat)headerTitleTextSize
